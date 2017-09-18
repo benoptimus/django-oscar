@@ -136,8 +136,8 @@ class EmailUserCreationForm(forms.ModelForm):
     password1 = forms.CharField(
         label=_('Password'), widget=forms.PasswordInput,
         validators=password_validators)
-    password2 = forms.CharField(
-        label=_('Confirm password'), widget=forms.PasswordInput)
+    #password2 = forms.CharField(
+    #    label=_('Confirm password'), widget=forms.PasswordInput)
     redirect_url = forms.CharField(
         widget=forms.HiddenInput, required=False)
 
@@ -159,13 +159,13 @@ class EmailUserCreationForm(forms.ModelForm):
                 _("A user with that email address already exists"))
         return email
 
-    def clean_password2(self):
-        password1 = self.cleaned_data.get('password1', '')
-        password2 = self.cleaned_data.get('password2', '')
-        if password1 != password2:
-            raise forms.ValidationError(
-                _("The two password fields didn't match."))
-        return password2
+    #def clean_password2(self):
+    #    password1 = self.cleaned_data.get('password1', '')
+    #    password2 = self.cleaned_data.get('password2', '')
+    #    if password1 != password2:
+    #        raise forms.ValidationError(
+    #            _("The two password fields didn't match."))
+    #    return password2
 
     def clean_redirect_url(self):
         url = self.cleaned_data['redirect_url'].strip()
