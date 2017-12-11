@@ -23,7 +23,7 @@ from . import signals
 PageTitleMixin, RegisterUserMixin = get_classes(
     'customer.mixins', ['PageTitleMixin', 'RegisterUserMixin'])
 Dispatcher = get_class('customer.utils', 'Dispatcher')
-EmailAuthenticationForm, EmailUserCreationForm, OrderSearchForm = get_classes(
+EmailAuthenticationForm, EmailUserCreationForm, OrderSearchForm, EmailAndNameUserCreationForm = get_classes(
     'customer.forms', ['EmailAuthenticationForm', 'EmailUserCreationForm',
                        'OrderSearchForm','EmailAndNameUserCreationForm'])
 PasswordChangeForm = get_class('customer.forms', 'PasswordChangeForm')
