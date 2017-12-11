@@ -25,7 +25,7 @@ PageTitleMixin, RegisterUserMixin = get_classes(
 Dispatcher = get_class('customer.utils', 'Dispatcher')
 EmailAuthenticationForm, EmailUserCreationForm, OrderSearchForm = get_classes(
     'customer.forms', ['EmailAuthenticationForm', 'EmailUserCreationForm',
-                       'OrderSearchForm'])
+                       'OrderSearchForm','EmailAndNameUserCreationForm'])
 PasswordChangeForm = get_class('customer.forms', 'PasswordChangeForm')
 ProfileForm, ConfirmPasswordForm = get_classes(
     'customer.forms', ['ProfileForm', 'ConfirmPasswordForm'])
@@ -62,7 +62,7 @@ class AccountSummaryView(generic.RedirectView):
 
 
 class AccountRegistrationView(RegisterUserMixin, generic.FormView):
-    form_class = EmailUserCreationForm
+    form_class = EmailAndNameUserCreationForm
     template_name = 'customer/registration.html'
     redirect_field_name = 'next'
 
