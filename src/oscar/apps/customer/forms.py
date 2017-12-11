@@ -205,6 +205,7 @@ class EmailAndNameUserCreationForm(forms.ModelForm):
     def __init__(self, host=None, *args, **kwargs):
         self.host = host
         super(EmailAndNameUserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].required = True
 
     def clean_email(self):
         """
