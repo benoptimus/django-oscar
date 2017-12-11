@@ -104,7 +104,7 @@ class AccountAuthView(RegisterUserMixin, generic.TemplateView):
     template_name = 'customer/login_registration.html'
     login_prefix, registration_prefix = 'login', 'registration'
     login_form_class = EmailAuthenticationForm
-    registration_form_class = EmailUserCreationForm
+    registration_form_class = EmailAndNameUserCreationForm
     redirect_field_name = 'next'
 
     def get(self, request, *args, **kwargs):
