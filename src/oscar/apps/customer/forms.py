@@ -187,7 +187,6 @@ class EmailUserCreationForm(forms.ModelForm):
         
 class EmailAndNameUserCreationForm(forms.ModelForm):
     email = forms.EmailField(label=_('Email address'))
-    firs_name = forms.CharField(label=_('First name'))
     last_name = forms.CharField(label=_('Family name'))
     password1 = forms.CharField(
         label=_('Password'), widget=forms.PasswordInput,
