@@ -205,7 +205,7 @@ class EmailAndNameUserCreationForm(forms.ModelForm):
 
     def __init__(self, host=None, *args, **kwargs):
         self.host = host
-        super(EmailUserCreationForm, self).__init__(*args, **kwargs)
+        super(EmailAndNameUserCreationForm, self).__init__(*args, **kwargs)
 
     def clean_email(self):
         """
@@ -232,7 +232,7 @@ class EmailAndNameUserCreationForm(forms.ModelForm):
         return settings.LOGIN_REDIRECT_URL
 
     def save(self, commit=True):
-        user = super(EmailUserCreationForm, self).save(commit=False)
+        user = super(EmailAndNameUserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data['password1'])
 
         if 'username' in [f.name for f in User._meta.fields]:
