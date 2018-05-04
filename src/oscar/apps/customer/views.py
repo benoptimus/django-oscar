@@ -76,7 +76,6 @@ class AccountRegistrationView(RegisterUserMixin, generic.FormView):
         return reverse('customer:summary')
 
     def get_form_kwargs(self):
-        print kwargs
         kwargs = super(AccountRegistrationView, self).get_form_kwargs()
         kwargs['initial'] = {
             'email': self.request.GET.get('email', ''),
