@@ -23,9 +23,9 @@ from . import signals
 PageTitleMixin, RegisterUserMixin = get_classes(
     'customer.mixins', ['PageTitleMixin', 'RegisterUserMixin'])
 Dispatcher = get_class('customer.utils', 'Dispatcher')
-EmailAuthenticationForm, EmailUserCreationForm, OrderSearchForm = get_classes(
+EmailAuthenticationForm, EmailUserCreationForm, OrderSearchForm, EmailAndNameUserCreationForm = get_classes(
     'customer.forms', ['EmailAuthenticationForm', 'EmailUserCreationForm',
-                       'OrderSearchForm'])
+                       'OrderSearchForm','EmailAndNameUserCreationForm'])
 PasswordChangeForm = get_class('customer.forms', 'PasswordChangeForm')
 ProfileForm, ConfirmPasswordForm = get_classes(
     'customer.forms', ['ProfileForm', 'ConfirmPasswordForm'])
@@ -62,7 +62,7 @@ class AccountSummaryView(generic.RedirectView):
 
 
 class AccountRegistrationView(RegisterUserMixin, generic.FormView):
-    form_class = EmailUserCreationForm
+    form_class = EmailAndNameUserCreationForm
     template_name = 'customer/registration.html'
     redirect_field_name = 'next'
 
@@ -103,7 +103,7 @@ class AccountAuthView(RegisterUserMixin, generic.TemplateView):
     template_name = 'customer/login_registration.html'
     login_prefix, registration_prefix = 'login', 'registration'
     login_form_class = EmailAuthenticationForm
-    registration_form_class = EmailUserCreationForm
+    registration_form_class = EmailAndNameUserCreationForm
     redirect_field_name = 'next'
 
     def get(self, request, *args, **kwargs):
