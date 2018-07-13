@@ -175,7 +175,8 @@ class AccountAuthView(RegisterUserMixin, generic.TemplateView):
         return self.render_to_response(ctx)
 
     def get_login_success_message(self, form):
-        return _("Welcome back")
+        #return _("Welcome back")
+	return None
 
     def get_login_success_url(self, form):
         redirect_url = form.cleaned_data['redirect_url']
