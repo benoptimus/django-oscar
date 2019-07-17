@@ -158,6 +158,6 @@ class CommonPasswordValidator(validators.BaseValidator):
 
 # List all requirements for password, site wide
 password_validators = [
-    validators.MinLengthValidator(6),
+    validators.MinLengthValidator(2),
     CommonPasswordValidator(),
 ]
